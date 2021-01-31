@@ -1,24 +1,23 @@
-import logo from './logo.svg';
-import './App.css';
+import React, {useState} from "react";
+
+import "./styles.css";
+import GuideForm from "./components/GuideForm";
+import GuideList from "./components/GuideList";
+import {GuidesContext} from './Context';
 
 function App() {
+
+  //context
+  const [guides, setGuides] = useState([]);
+
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
+    <GuidesContext.Provider value={[guides, setGuides]}>
+    <main className="App">
+      <h1>Write a guide</h1>
+      <GuideForm />
+      <GuideList />
+    </main>
+    </GuidesContext.Provider>
   );
 }
 
