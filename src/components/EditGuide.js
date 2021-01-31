@@ -3,10 +3,9 @@ import { GuidesContext } from "../Context";
 import Modal from "react-modal";
 
 export default function EditGuide({ guide }) {
-  console.log(guide);
   const [modalIsOpen, setIsOpen] = React.useState(false);
-  const [title, setTitle] = useState("");
-  const [text, setText] = useState("");
+  const [title, setTitle] = useState(guide.title);
+  const [text, setText] = useState(guide.text);
   const [guides, setGuides] = useContext(GuidesContext);
 
   const handleEdit = (e) => {
