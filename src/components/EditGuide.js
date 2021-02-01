@@ -10,6 +10,17 @@ export default function EditGuide({ guide }) {
 
   const handleEdit = (e) => {
     e.preventDefault();
+
+
+    for(let i=0; i<guides.length; i++) {
+      if(guides[i].id === guide.id) {
+        guides[i].title = title;
+        guides[i].text = text;
+      }
+    }
+    console.log(guides);
+    setGuides(guides);
+    //setGuides([...guides.filter(e=>e.id !== guide.id), {guide.id, title, text, }])
   };
 
   function openModal() {
@@ -28,16 +39,16 @@ export default function EditGuide({ guide }) {
         onRequestClose={closeModal}
         contentLabel="Example Modal"
       >
-        <h2>Hello</h2>
+        <h2>Edit Guide</h2>
         <form className="edit-form">
           <input
             type="text"
-            value={guide.title}
+            value={title}
             onChange={(e) => setTitle(e.target.value)}
           />
           <input
             type="text"
-            value={guide.text}
+            value={text}
             className="guide-text"
             onChange={(e) => setText(e.target.value)}
           />
