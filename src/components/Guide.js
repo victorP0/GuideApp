@@ -9,8 +9,6 @@ function Guide({ title, text, author, url, guide }) {
     setGuides([...guides.filter((e) => e.id !== guide.id)]);
   };
 
-  const handleEditGuide = () => {};
-
   return (
     <div className="guide-item">
       <h3 className="guide-item-title">Title: {title}</h3>

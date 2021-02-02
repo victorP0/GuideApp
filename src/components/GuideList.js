@@ -1,5 +1,4 @@
 import React, { useContext } from "react";
-import GuideForm from "./GuideForm";
 import { GuidesContext } from "../Context";
 import Guide from "./Guide";
 
