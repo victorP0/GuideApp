@@ -7,20 +7,20 @@ export default function EditGuide({ guide }) {
   const [title, setTitle] = useState(guide.title);
   const [text, setText] = useState(guide.text);
   const [guides, setGuides] = useContext(GuidesContext);
+  const [url, setURL] = useState("");
 
   const handleEdit = (e) => {
     e.preventDefault();
 
-
-    for(let i=0; i<guides.length; i++) {
-      if(guides[i].id === guide.id) {
+    for (let i = 0; i < guides.length; i++) {
+      if (guides[i].id === guide.id) {
         guides[i].title = title;
         guides[i].text = text;
+        guides[i].url = url;
       }
     }
     console.log(guides);
-    setGuides(guides);
-    //setGuides([...guides.filter(e=>e.id !== guide.id), {guide.id, title, text, }])
+    setGuides([...guides]);
   };
 
   function openModal() {
@@ -41,7 +41,7 @@ export default function EditGuide({ guide }) {
       >
         <h2>Edit Guide</h2>
         <form className="edit-form">
-          <input
+          Title: <input
             type="text"
             value={title}
             onChange={(e) => setTitle(e.target.value)}
@@ -52,7 +52,13 @@ export default function EditGuide({ guide }) {
             className="guide-text"
             onChange={(e) => setText(e.target.value)}
           />
-          <button onClick = {handleEdit}>Submit</button>
+          <input
+            type="text"
+            value={url}
+            className="guide-url"
+            onChange={(e) => setURL(e.target.value)}
+          />
+          <button onClick={handleEdit}>Submit</button>
         </form>
         <button onClick={closeModal}>close</button>
       </Modal>

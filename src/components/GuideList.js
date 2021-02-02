@@ -18,7 +18,6 @@ function GuideList() {
             url={guide["url"]}
             key={guide.id}
             guide= {guide}
-            // handleDeleteGuide = {handleDeleteGuide}
           />
         );
       })}
