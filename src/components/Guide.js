@@ -1,12 +1,28 @@
 import React, { useContext } from "react";
 import { GuidesContext } from "../Context";
 import EditGuide from "./EditGuide";
+import config from './config';
 
 function Guide({ title, text, author, url, guide }) {
   const [guides, setGuides] = useContext(GuidesContext);
 
   const handleDeleteGuide = () => {
-    setGuides([...guides.filter((e) => e.id !== guide.id)]);
+    // setGuides([...guides.filter((e) => e.id !== guide.id)]);
+    fetch(`${config.API_ENDPOINT}/`, {
+      method: 'DELETE',
+      headers: {
+        'content-type': 'application/json',
+        'Authorization': `Bearer ${config.API_KEY}`
+      },
+    })
+      .then(res => {
+        if (!res.ok)
+          return res.json().then(e => Promise.reject(e))
+        return res.json()
+      })
+      .catch(error => {
+        console.error({ error })
+      })
   };
 
   return (

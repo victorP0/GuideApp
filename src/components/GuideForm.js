@@ -1,6 +1,8 @@
 import React, { useState, useContext } from "react";
 import { GuidesContext } from "../Context";
 import { v4 as uuidv4 } from 'uuid';
+import config from './config';
+
 
 function GuideForm() {
   const [title, setTitle] = useState("");
@@ -12,13 +14,32 @@ function GuideForm() {
   const handleSubmit = (e) => {
     e.preventDefault();
     const dateadded = new Date();
-    const newGuide = { title: title, text: text, author: author, url: url, id: uuidv4(), dateadded };
-    setGuides([...guides, newGuide]);
+    const newGuide = { title: title, text: text, author: author, url: url, dateadded };
     console.log(guides);
-    setTitle("");
-    setAuthor("");
-    setText("");
-    setURL("");
+
+    fetch(`${config.API_ENDPOINT}/`, {
+      method: 'POST',
+      headers: {
+        'content-type': 'application/json',
+        'Authorization': `Bearer ${config.API_KEY}`
+      },
+      body: JSON.stringify(newGuide),
+    })
+      .then((res) => {
+        if (!res.ok)
+          return res.json().then(e => Promise.reject(e))
+        return res.json()
+      })
+      .then(note => {
+        setGuides([...guides, newGuide]);
+      })
+      .catch(error => {
+        console.error({ error })
+      })
+      setTitle("");
+      setAuthor("");
+      setText("");
+      setURL("");
   };
 
   return (

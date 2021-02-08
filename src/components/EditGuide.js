@@ -1,5 +1,6 @@
 import React, { useState, useContext } from "react";
 import { GuidesContext } from "../Context";
+import config from './config';
 import Modal from "react-modal";
 
 export default function EditGuide({ guide }) {
@@ -20,13 +21,41 @@ export default function EditGuide({ guide }) {
       }
     }
     console.log(guides);
-    setGuides([...guides]);
+    // setGuides([...guides]);
+
+    fetch(`${config.API_ENDPOINT}/:id`, {
+      method: 'PATCH',
+      headers: {
+        'content-type': 'application/json',
+        'Authorization': `Bearer ${config.API_KEY}`
+
+      },
+      body: JSON.stringify(guides),
+    })
+      .then(res => {
+        if (!res.ok)
+          return res.json().then(e => Promise.reject(e))
+        return res.json()
+      })
+      .then(note => {
+        setGuides([...guides]);
+      })
+      .catch(error => {
+        console.error({ error })
+      })
+      setTitle("");
+      setAuthor("");
+      setText("");
+      setURL("");
+    setIsOpen(false);
   };
 
   function openModal() {
     setIsOpen(true);
   }
   function closeModal() {
+    setTitle(guide.title);
+    setText(guide.text);
     setIsOpen(false);
   }
 
