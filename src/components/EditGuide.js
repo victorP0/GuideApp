@@ -13,8 +13,10 @@ export default function EditGuide({ guide }) {
   const handleEdit = (e) => {
     e.preventDefault();
 
+    let what_is_the_right_i;
     for (let i = 0; i < guides.length; i++) {
       if (guides[i].id === guide.id) {
+        what_is_the_right_i = i;
         guides[i].title = title;
         guides[i].text = text;
         guides[i].url = url;
@@ -23,14 +25,14 @@ export default function EditGuide({ guide }) {
     console.log(guides);
     // setGuides([...guides]);
 
-    fetch(`${config.API_ENDPOINT}/:id`, {
+    fetch(`${config.API_ENDPOINT}/${guide.id}`, {
       method: 'PATCH',
       headers: {
         'content-type': 'application/json',
         'Authorization': `Bearer ${config.API_KEY}`
 
       },
-      body: JSON.stringify(guides),
+      body: JSON.stringify(guides[what_is_the_right_i]),
     })
       .then(res => {
         if (!res.ok)
@@ -43,10 +45,7 @@ export default function EditGuide({ guide }) {
       .catch(error => {
         console.error({ error })
       })
-      setTitle("");
-      setAuthor("");
-      setText("");
-      setURL("");
+
     setIsOpen(false);
   };
 

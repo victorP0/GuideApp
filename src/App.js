@@ -1,4 +1,4 @@
-import React, {useState} from "react";
+import React, {useState, useEffect} from "react";
 import config from './components/config';
 import "./styles.css";
 import GuideForm from "./components/GuideForm";
@@ -10,23 +10,25 @@ function App() {
   //context
   const [guides, setGuides] = useState([]);
 
-  componentDidMount() {
-    fetch(config.API_ENDPOINT, {
-      method: 'GET',
-      headers: {
-        'content-type': 'application/json',
-        'Authorization': `Bearer ${config.API_KEY}`
-      }
+  useEffect(() => {
+    console.log(config);
+    fetch(`${config.API_ENDPOINT}`, {
+      headers: new Headers({
+        Authorization: `Bearer ${config.API_KEY}`,
+      }),
     })
-      .then(res => {
-        if (!res.ok) {
-          throw new Error(res.status)
+      .then((Res) => {
+        console.log("There was an attempt");
+
+        if (!Res.ok) {
+          return Res.json().then((e) => Promise.reject(e));
         }
-        return res.json()
+
+        return Res.json();
       })
-      .then(this.setGuides)
-      .catch(error => this.setState({ error }))
-  }
+      .then((guides) => setGuides(guides))
+      .catch((error) => console.log(error));
+  }, []);
 
 
   return (

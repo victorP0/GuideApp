@@ -15,7 +15,7 @@ function GuideList() {
             text={guide["text"]}
             author={guide["author"]}
             url={guide["url"]}
-            key={guide.id}
+            id={guide.id}
             guide= {guide}
           />
         );

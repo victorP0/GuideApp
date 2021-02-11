@@ -1,6 +1,5 @@
 import React, { useState, useContext } from "react";
 import { GuidesContext } from "../Context";
-import { v4 as uuidv4 } from 'uuid';
 import config from './config';
 
 
