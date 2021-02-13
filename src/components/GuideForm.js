@@ -16,7 +16,7 @@ function GuideForm() {
     const newGuide = { title: title, text: text, author: author, url: url, dateadded };
     console.log(guides);
 
-    fetch(`${config.API_ENDPOINT}/`, {
+    fetch(`${config.API_ENDPOINT}`, {
       method: 'POST',
       headers: {
         'content-type': 'application/json',
