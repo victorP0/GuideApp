@@ -23,7 +23,6 @@ export default function EditGuide({ guide }) {
       }
     }
     console.log(guides);
-    // setGuides([...guides]);
 
     fetch(`${config.API_ENDPOINT}/${guide.id}`, {
       method: 'PATCH',
@@ -60,7 +59,7 @@ export default function EditGuide({ guide }) {
 
   return (
     <div>
-      <button onClick={openModal}>Edit</button>
+      <button className="edit-button" onClick={openModal}>Edit</button>
       <Modal
         isOpen={modalIsOpen}
         ariaHideApp={false}
@@ -80,7 +79,7 @@ export default function EditGuide({ guide }) {
             className="guide-text"
             onChange={(e) => setText(e.target.value)}
           />
-          <input
+          URL: <input
             type="text"
             value={url}
             className="guide-url"

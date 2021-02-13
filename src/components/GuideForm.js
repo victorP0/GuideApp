@@ -52,7 +52,7 @@ function GuideForm() {
           onChange={(e) => setTitle(e.target.value)}
           required
         />
-        <input
+        <textarea
           type="text"
           placeholder="Write a guide"
           value={text}
@@ -68,6 +68,7 @@ function GuideForm() {
           onChange={(e) => setAuthor(e.target.value)}
           required
         />
+
         <input
           type="text"
           placeholder="URL"

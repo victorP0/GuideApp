@@ -1,21 +1,181 @@
 * {
+  font-family: "PT Sans", sans-serif;
+  
+}
 
-    font-family: "Roboto", sans-serif;
+.title {
+  font-family: "Avenir", sans-serif;
+  color: #4c57d5;
+  text-decoration:underline whitesmoke;
+  animation: type 3s steps(13);
+  overflow:hidden;
+  white-space:nowrap;
+  border-right:3px solid;
+  width: 12ch;
 
+}
+
+@keyframes type{
+  0% {
+    width:0ch;
   }
-
-.guide-text{
-    width: 100%;
-    height: 50px;
-    padding: 12px 20px;
-    box-sizing: border-box;
-    border: 2px solid #ccc;
-    border-radius: 4px;
-    background-color: #f8f8f8;
-    resize: none;
+  100%{
+    width:13ch;
   }
+}
+
+.introduction {
+  display:flex;
+  flex-direction: column;
+  align-items:center;
+  justify-content:center;
+  text-align: center;
+}
+.instruction{
+  margin-top:0px;
+}
+
+.guide-form {
+  display: flex;
+  flex-direction: column;
+  margin-left: 25%;
+  margin-top: 0;
+  align-content: flex-start;
+  flex-basis: auto;
+}
+
+.guide-form button {
+  margin-top: 10px;
+  width: 10%;
+}
+
+button {
+  background-color: #4c57d5;
+  color: white;
+  border: none;
+  border-radius: 0.2em;
+  display: flex;
+  flex-basis: content;
+  justify-content: center;
+}
+
+.guide-form button:hover {
+  background-color: #4CD585 ;
+  color: white;
+}
+
+.edit-button:hover{
+  background-color:#D5CA4C;
+  color: white; 
+}
+
+.delete-button:hover{
+  background-color: #D54C9C;
+  color: white;  
+}
+
+.guide-title {
+  width: 20%;
+  margin-bottom: 10px;
+}
+
+.guide-text {
+  width: 75%;
+  height: 80px;
+  padding: 12px 5px;
+  box-sizing: border-box;
+  border: 2px solid #ccc;
+  border-radius: 4px;
+  background-color: #f8f8f8;
+  resize: none;
+}
+
+.guide-author {
+  width: 20%;
+}
+
+.guide-url {
+  width: 20%;
+}
 
 .guide-item {
-    border: 2px solid #ccc;
-    color: black;
+  border: 2px solid #ccc;
+  color: black;
+  padding-left: 10px;
+}
+
+.guide-container {
+  margin: 10px;
+  background-color: #FBFCFC;
+}
+
+.guide-container button {
+  margin-right: 10px;
+}
+
+
+@media screen and (max-width: 375px) {
+
+  .instruction{
+    font-size: .8rem;
+  }
+
+  .guide-form{
+    margin: 0 5%;
+  }
+
+  .guide-title{
+    width: 50%;
+  }
+
+  .guide-text{
+    width: 100%;
+  }
+
+  .guide-author{
+    width: 40%;
+  }
+
+  .guide-url{
+    width: 40%;
+  }
+
+  .guide-form button {
+    margin-top: 10px;
+    width: fit-content;
+  }
+
+}
+
+@media screen and (max-width: 768px) {
+
+  .instruction{
+    font-size: 1rem;
+  }
+
+  .guide-form{
+    margin: 0 2%;
+  }
+
+  .guide-title{
+    width: 50%;
+  }
+
+  .guide-text{
+    width: 100%;
+  }
+
+  .guide-author{
+    width: 40%;
+  }
+
+  .guide-url{
+    width: 40%;
+  }
+
+  .guide-form button {
+    margin-top: 10px;
+    width: fit-content;
+  }
+
 }

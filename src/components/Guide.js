@@ -29,10 +29,10 @@ function Guide({ title, text, author, url, id, guide }) {
 
   return (
     <div className="guide-item">
-      <h3 className="guide-item-title">Title: {title}</h3>
+      <h3 className="guide-item-title">{title}</h3>
       <p className="guide-item-text">{text}</p>
       <p className="guide-item-author">Author: {author}</p>
-      <p className="guide-item-url">{url}</p>
+      <p className="guide-item-url">URL: {url}</p>
       <div className="guide-item-buttons">
       <EditGuide guide={guide} />
       <button className="delete-button" onClick={handleDeleteGuide}> Delete</button>

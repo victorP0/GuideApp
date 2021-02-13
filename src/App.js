@@ -34,7 +34,10 @@ function App() {
   return (
     <GuidesContext.Provider value={[guides, setGuides]}>
     <main className="App">
-      <h1>Write a guide</h1>
+      <div className="introduction">
+      <h1 className="title">Write a guide</h1>
+        <p className="instruction">The Guides App allows you to write and publish guides on the internet!</p>
+      </div>
       <GuideForm />
       <GuideList />
     </main>

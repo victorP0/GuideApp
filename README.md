@@ -1,18 +1,18 @@
 ## Guides App
 
-This is the frontend for the Guides App. Link to App demo().
+This is the frontend for the Guides App. Link to App demo(https://guide-app-aycmd28xl.vercel.app/).
 
-The backend can be found at 
 ## API Documentation
 
+The backend API can be found at https://github.com/victorP0/DrawingApp_api.
 
 ## Screenshots
 
-![](images/)
+![](images/GuideAppScreenshot.png)
 
 ## Description
 
-This a Guides app that allows Users to create and save online guides/tutorials. 
+This a Guides app that allows Users to create and publish online guides. 
 
 ## Technologies used
 
