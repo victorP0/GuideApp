@@ -3,6 +3,18 @@
   
 }
 
+.landing{
+  display: flex;
+  align-items: center;
+flex-direction: column;
+}
+
+.LP-title{
+  font-family: "Avenir", sans-serif;
+  color: #4c57d5;
+  text-decoration:underline whitesmoke;
+}
+
 .title {
   font-family: "Avenir", sans-serif;
   color: #4c57d5;

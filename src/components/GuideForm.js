@@ -14,7 +14,6 @@ function GuideForm() {
     e.preventDefault();
     const dateadded = new Date();
     const newGuide = { title: title, text: text, author: author, url: url, dateadded };
-    console.log(guides);
 
     fetch(`${config.API_ENDPOINT}`, {
       method: 'POST',
