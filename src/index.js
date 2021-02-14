@@ -12,7 +12,7 @@ ReactDOM.render(
     <BrowserRouter>
     <React.StrictMode>
       <LandingPage />
-    </React.StrictMode>,
+    </React.StrictMode>
     </BrowserRouter>,
     rootElement
   );

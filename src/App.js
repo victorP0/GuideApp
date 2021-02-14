@@ -11,7 +11,7 @@ function App() {
   const [guides, setGuides] = useState([]);
 
   useEffect(() => {
-    console.log(config);
+    //console.log(config);
     fetch(`${config.API_ENDPOINT}`, {
       headers: new Headers({
         Authorization: `Bearer ${config.API_KEY}`,
