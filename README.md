@@ -1,6 +1,6 @@
 ## Guides App
 
-This is the frontend for the Guides App. Link to App demo(https://guide-app-aycmd28xl.vercel.app/).
+This is the frontend for the Guides App. Link to App demo(https://guide-app-i0clnv03k.vercel.app/).
 
 ## API Documentation
 
