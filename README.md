@@ -8,7 +8,7 @@ The backend API can be found at https://github.com/victorP0/DrawingApp_api.
 
 ## Screenshots
 
-![](images/GuideAppScreenshot.png)
+![](img/GuideAppScreenshot.png)
 
 ## Description
 

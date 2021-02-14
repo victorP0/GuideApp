@@ -3,7 +3,7 @@ import ReactDOM from 'react-dom';
 import { BrowserRouter } from "react-router-dom";
 
 import LandingPage from './LandingPage'
-import './index.css';
+import "./styles.css";
 
 // ReactDOM.render(<App />, document.getElementById('root'));
 const rootElement = document.getElementById("root");
